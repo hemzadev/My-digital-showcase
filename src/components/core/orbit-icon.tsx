@@ -29,11 +29,10 @@ export function OrbitIcon({
         const width = parent.offsetWidth;
         const radius = width / 2;
         containerRef.current.style.setProperty('--orbit-radius', `${radius}px`);
-        containerRef.current.style.setProperty('--orbit-duration', `${duration}s`);
         setIsReady(true);
       }
     }
-  }, [duration]);
+  }, []);
 
   return (
     <div 
@@ -44,31 +43,25 @@ export function OrbitIcon({
       <div 
         className="absolute rounded-full bg-gradient-to-br from-gray-700 via-gray-800 to-gray-900
           shadow-lg shadow-violet-500/10 before:absolute before:inset-0 before:rounded-full 
-          before:bg-gradient-to-br before:from-violet-500/20 before:to-transparent before:animate-pulse
-          animate-[orbit_var(--orbit-duration)_linear_infinite]"
+          before:bg-gradient-to-br before:from-violet-500/20 before:to-transparent before:animate-pulse"
         style={{
           width: `${size * 4}px`,
           height: `${size * 4}px`,
           left: '50%',
           top: '50%',
-          visibility: isReady ? 'visible' : 'hidden'
+          transform: 'translate(-50%, -50%)',
+          animation: `orbit ${duration}s linear infinite`
         }}
       >
         <div className="absolute -inset-1 bg-gradient-to-r from-violet-500/20 to-transparent rounded-full animate-spin [animation-duration:3s]" />
-        <div 
-          className="absolute inset-0"
+        <Icon 
+          className={`absolute inset-0 m-auto animate-pulse ${className}`}
           style={{
-            animation: `counter-rotate ${duration}s linear infinite`
+            width: `${iconSize * 4}px`,
+            height: `${iconSize * 4}px`,
+            transform: 'rotate(0deg)'
           }}
-        >
-          <Icon 
-            className={`absolute inset-0 m-auto animate-pulse ${className}`}
-            style={{
-              width: `${iconSize * 4}px`,
-              height: `${iconSize * 4}px`
-            }}
-          />
-        </div>
+        />
       </div>
     </div>
   );

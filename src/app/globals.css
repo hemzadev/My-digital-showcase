@@ -125,4 +125,27 @@
     border-radius: 60% 40% 55% 45% / 45% 55% 45% 55%;
     transform: translate(-50%, -50%) rotate(-5deg);
   }
+
+  @keyframes orbit {
+    0% {
+      transform: translate(-50%, -50%) rotate(0deg) translateX(var(--orbit-radius));
+    }
+    100% {
+      transform: translate(-50%, -50%) rotate(360deg) translateX(var(--orbit-radius));
+    }
+  }
+
+  .orbit-initial {
+    opacity: 0;
+    animation: fadeIn 0.3s ease-out forwards;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
 }
