@@ -1,14 +1,16 @@
 import avatar from '@/assets/images/Avatar.png'; 
 import Image from "next/image";
-import ArrowDownIcon from '@/assets/icons/arrow-down.svg';
+import { ArrowDownIcon, GithubIcon, DockerIcon, AngularIcon, GraphQLIcon, SpringBootIcon, TypeScriptIcon, MongoDBIcon, NextJSIcon } from '@/components/icons';
 import { TextShimmer } from '@/components/core/text-shimmer';
 import VioletBackground from '@/assets/images/Violet-background-texture.png';
 import VioletBackgroundTwo from '@/assets/images/Violet-background-texture-vr2.png';
 import VioletBackgroundThree from '@/assets/images/Violet-background-texture-vr3.png';
+import { OrbitIcon } from '@/components/core/orbit-icon';
+
 
 export function HeroSection() {
   return (
-    <div className="py-32 md:py-48 lg:py-60 relative z-0">
+    <div className="py-32 md:py-48 lg:py-60 relative z-0 overflow-x-clip">
       <div className="absolute inset-0 -z-30 opacity-[0.02]">
         <Image 
           src={VioletBackgroundThree.src} 
@@ -19,6 +21,19 @@ export function HeroSection() {
           priority
         />
       </div>
+      <div className="deformed-oval size-[650px]">
+      <OrbitIcon 
+          icon={GithubIcon}
+          size={10}
+          duration={30}
+          iconSize={6}
+          className="text-white/90"
+          style={{ transform: 'rotate(0deg)' }}
+        />
+      </div>
+      <div className="deformed-oval size-[850px]"></div>
+      <div className="deformed-oval size-[1050px]"></div>
+      <div className="deformed-oval size-[1250px]"></div>
       <div className="container">
         <div className="flex flex-col items-center">
           <Image 
@@ -62,13 +77,6 @@ export function HeroSection() {
             </button>
           </div>
       </div>
-      <div 
-        className="absolute inset-0 size-[720px] border-2 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 border-violet-500/5 shadow-[0_0_100px_inset] shadow-violet-500/5"
-        style={{
-          borderRadius: '60% 40% 55% 45% / 45% 55% 45% 55%',
-          transform: 'translate(-50%, -50%) rotate(-5deg)',
-        }}
-      ></div>
     </div>
   );
 }

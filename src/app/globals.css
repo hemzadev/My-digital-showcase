@@ -118,3 +118,11 @@
     @apply bg-background text-foreground;
   }
 }
+
+@layer components {
+  .deformed-oval {
+    @apply absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 border-2 border-violet-500/5 shadow-[0_0_100px_inset] shadow-violet-500/5 aspect-square;
+    border-radius: 60% 40% 55% 45% / 45% 55% 45% 55%;
+    transform: translate(-50%, -50%) rotate(-5deg);
+  }
+}
