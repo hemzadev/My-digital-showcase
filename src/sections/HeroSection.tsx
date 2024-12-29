@@ -1,14 +1,16 @@
+import React from 'react';
 import avatar from '@/assets/images/Avatar.png'; 
 import Image from "next/image";
-import ArrowDownIcon from '@/assets/icons/arrow-down.svg';
+import { ArrowDownIcon, GithubIcon, DockerIcon, AngularIcon, GraphQLIcon, SpringBootIcon, TypeScriptIcon, KafkaIcon, MongoDBIcon, NextJSIcon } from '@/components/icons';
 import { TextShimmer } from '@/components/core/text-shimmer';
 import VioletBackground from '@/assets/images/Violet-background-texture.png';
 import VioletBackgroundTwo from '@/assets/images/Violet-background-texture-vr2.png';
 import VioletBackgroundThree from '@/assets/images/Violet-background-texture-vr3.png';
+import { OrbitIcon } from '@/components/core/orbit-icon';
 
 export function HeroSection() {
   return (
-    <div className="py-32 md:py-48 lg:py-60 relative z-0">
+    <div className="py-32 md:py-48 lg:py-60 relative z-0 overflow-x-clip">
       <div className="absolute inset-0 -z-30 opacity-[0.02]">
         <Image 
           src={VioletBackgroundThree.src} 
@@ -19,8 +21,84 @@ export function HeroSection() {
           priority
         />
       </div>
-      <div className="container">
-        <div className="flex flex-col items-center">
+      <div className="deformed-oval w-[650px]">
+        <OrbitIcon 
+          icon={GithubIcon}
+          size={10}
+          duration={30}
+          iconSize={6}
+          className="text-white/90"
+          style={{ transform: 'rotate(0deg)' }}
+        />
+      </div>
+      <div className="deformed-oval w-[850px]">
+        <OrbitIcon 
+          icon={DockerIcon}
+          size={11}
+          duration={35}
+          iconSize={7}
+          className="text-white/90"
+          style={{ transform: 'rotate(120deg)' }}
+        />
+      </div>
+      <div className="deformed-oval w-[1050px]">
+        <OrbitIcon 
+          icon={AngularIcon}
+          size={9}
+          duration={40}
+          iconSize={6}
+          className="text-white/90"
+          style={{ transform: 'rotate(240deg)' }}
+        />
+      </div>
+      <div className="deformed-oval w-[1250px]">
+        <OrbitIcon 
+          icon={GraphQLIcon}
+          size={12}
+          duration={45}
+          iconSize={8}
+          className="text-white/90"
+          style={{ transform: 'rotate(60deg)' }}
+        />
+        <OrbitIcon 
+          icon={SpringBootIcon}
+          size={10}
+          duration={42}
+          iconSize={7}
+          className="text-white/90"
+          style={{ transform: 'rotate(180deg)' }}
+        />
+      </div>
+      <div className="deformed-oval w-[1450px]">
+        <OrbitIcon 
+          icon={TypeScriptIcon}
+          size={11}
+          duration={50}
+          iconSize={7}
+          className="text-white/90"
+          style={{ transform: 'rotate(300deg)' }}
+        />
+      </div>
+      <div className="deformed-oval w-[1650px]">
+        <OrbitIcon 
+          icon={MongoDBIcon}
+          size={10}
+          duration={55}
+          iconSize={6}
+          className="text-white/90"
+          style={{ transform: 'rotate(90deg)' }}
+        />
+        <OrbitIcon 
+          icon={NextJSIcon}
+          size={12}
+          duration={52}
+          iconSize={8}
+          className="text-white/90"
+          style={{ transform: 'rotate(270deg)' }}
+        />
+      </div>
+      <div className="container mx-auto px-4 relative z-10">
+        <div className="flex flex-col items-center relative z-10">
           <Image 
             src={avatar}
             alt="Avatar" 
@@ -62,13 +140,6 @@ export function HeroSection() {
             </button>
           </div>
       </div>
-      <div 
-        className="absolute inset-0 size-[720px] border-2 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 border-violet-500/5 shadow-[0_0_100px_inset] shadow-violet-500/5"
-        style={{
-          borderRadius: '60% 40% 55% 45% / 45% 55% 45% 55%',
-          transform: 'translate(-50%, -50%) rotate(-5deg)',
-        }}
-      ></div>
     </div>
   );
 }

@@ -12,7 +12,6 @@ const nextConfig: NextConfig = {
   experimental: {
     turbo: {
       rules: {
-        // Configure SVG handling for Turbopack
         '*.svg': {
           loaders: ['@svgr/webpack'],
           as: 'component',
