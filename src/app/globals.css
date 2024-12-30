@@ -134,7 +134,12 @@
       transform: translate(-50%, -50%) rotate(360deg) translateX(var(--orbit-radius));
     }
   }
-
+  .orbit-animation {
+    opacity: 0;
+    animation: fadeIn 0.3s ease-out forwards, orbit var(--orbit-duration, 30s) linear infinite var(--orbit-delay, 0s);
+    offset-path: var(--orbit-path);
+    offset-rotate: 0deg;
+  }
   .orbit-initial {
     opacity: 0;
     animation: fadeIn 0.3s ease-out forwards;

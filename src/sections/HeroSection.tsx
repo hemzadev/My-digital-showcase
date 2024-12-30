@@ -6,14 +6,15 @@ import VioletBackground from '@/assets/images/Violet-background-texture.png';
 import VioletBackgroundTwo from '@/assets/images/Violet-background-texture-vr2.png';
 import VioletBackgroundThree from '@/assets/images/Violet-background-texture-vr3.png';
 import { OrbitIcon } from '@/components/core/orbit-icon';
-
+import { OrbitCircle } from '@/components/core/orbit-circle';
 
 export function HeroSection() {
   return (
     <div className="py-32 md:py-48 lg:py-60 relative z-0 overflow-x-clip">
+      <div className="absolute inset-0 [mask-image:linear-gradient(to_bottom,transparent,black_10%,black_70%,transparent)]">
       <div className="absolute inset-0 -z-30 opacity-[0.02]">
         <Image 
-          src={VioletBackgroundThree.src} 
+          src={VioletBackgroundTwo.src} 
           alt="Violet Background" 
           width={1920}
           height={1080}
@@ -22,18 +23,47 @@ export function HeroSection() {
         />
       </div>
       <div className="deformed-oval size-[650px]">
-      <OrbitIcon 
+        <OrbitIcon 
+          icon={SpringBootIcon}
+          size={10}
+          duration={30}
+          iconSize={6}
+          className="text-white/90"
+          style={{ transform: 'rotate(0deg)', animationDelay: '5s' }}
+        />
+      </div>
+      <div className="deformed-oval size-[850px]">
+        <OrbitIcon 
+          icon={SpringBootIcon}
+          size={10}
+          duration={30}
+          iconSize={6}
+          className="text-white/90"
+          style={{ transform: 'rotate(0deg)', animationDelay: '1s' }}
+        />
+        <OrbitCircle size={10} duration={30} animationDelay="4s" />
+      </div>
+      <div className="deformed-oval size-[1050px]">
+        <OrbitIcon 
           icon={GithubIcon}
           size={10}
           duration={30}
           iconSize={6}
           className="text-white/90"
-          style={{ transform: 'rotate(0deg)' }}
+          style={{ transform: 'rotate(0deg)', animationDelay: '3s' }}
         />
       </div>
-      <div className="deformed-oval size-[850px]"></div>
-      <div className="deformed-oval size-[1050px]"></div>
-      <div className="deformed-oval size-[1250px]"></div>
+      <div className="deformed-oval size-[1250px]">
+        <OrbitIcon 
+          icon={GraphQLIcon}
+          size={10}
+          duration={30}
+          iconSize={6}
+          className="text-white/90"
+          style={{ transform: 'rotate(0deg)', animationDelay: '4s' }}
+        />
+      </div>
+      </div>
       <div className="container">
         <div className="flex flex-col items-center">
           <Image 

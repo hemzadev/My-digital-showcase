@@ -2,7 +2,7 @@ import { BorderTrail } from '@/components/ui/border-trail';
 
 export function Header() {
   return (
-    <div className="flex justify-center items-center fixed top-3 w-full">
+    <div className="flex justify-center items-center fixed top-3 w-full z-10">
 
       <div className="relative inline-block">
         <BorderTrail
