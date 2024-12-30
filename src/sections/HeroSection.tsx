@@ -6,12 +6,25 @@ import VioletBackground from '@/assets/images/Violet-background-texture.png';
 import VioletBackgroundTwo from '@/assets/images/Violet-background-texture-vr2.png';
 import VioletBackgroundThree from '@/assets/images/Violet-background-texture-vr3.png';
 import { OrbitIcon } from '@/components/core/orbit-icon';
-import { OrbitCircle } from '@/components/core/orbit-circle';
+import StarsBackground from '@/components/ui/stars-background';
+import { ShootingStars } from '@/components/ui/shooting-stars';
 
 export function HeroSection() {
   return (
     <div className="py-32 md:py-48 lg:py-60 relative z-0 overflow-x-clip">
       <div className="absolute inset-0 [mask-image:linear-gradient(to_bottom,transparent,black_10%,black_70%,transparent)]">
+        <StarsBackground />
+        <ShootingStars 
+        minSpeed={10}
+        maxSpeed={30}
+        minDelay={1200}
+        maxDelay={4200}
+        starColor="#9E00FF"
+        trailColor="#2EB9DF"
+        starWidth={10}
+        starHeight={1}
+        className="absolute inset-0" // Ensure it covers the entire section
+      />
       <div className="absolute inset-0 -z-30 opacity-[0.02]">
         <Image 
           src={VioletBackgroundTwo.src} 
@@ -41,7 +54,6 @@ export function HeroSection() {
           className="text-white/90"
           style={{ transform: 'rotate(0deg)', animationDelay: '1s' }}
         />
-        <OrbitCircle size={10} duration={30} animationDelay="4s" />
       </div>
       <div className="deformed-oval size-[1050px]">
         <OrbitIcon 
