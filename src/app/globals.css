@@ -154,3 +154,10 @@
     }
   }
 }
+
+
+@layer utilities {
+  .container {
+    @apply lg:max-w-5xl;  /* This applies the max width for large screens */
+  }
+}

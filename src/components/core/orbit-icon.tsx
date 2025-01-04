@@ -9,6 +9,8 @@ interface OrbitIconProps {
   iconSize?: number;
   className?: string;
   style?: React.CSSProperties;
+  startAngle?: number; // New prop for start point
+  reverse?: boolean; // New prop for reverse spinning
 }
 
 export function OrbitIcon({
@@ -18,6 +20,8 @@ export function OrbitIcon({
   iconSize = 8,
   className = "text-white/90",
   style = {},
+  startAngle = 0, // Default start angle is 0 degrees
+  reverse = false, // Default is not reversed
 }: OrbitIconProps) {
   const containerRef = useRef<HTMLDivElement>(null);
   const [isReady, setIsReady] = useState(false);
@@ -29,10 +33,12 @@ export function OrbitIcon({
         const width = parent.offsetWidth;
         const radius = width / 2;
         containerRef.current.style.setProperty('--orbit-radius', `${radius}px`);
+        containerRef.current.style.setProperty('--start-angle', `${startAngle}deg`);
+        containerRef.current.style.setProperty('--spin-direction', reverse ? 'reverse' : 'normal');
         setIsReady(true);
       }
     }
-  }, []);
+  }, [startAngle, reverse]);
 
   return (
     <div 
@@ -49,20 +55,22 @@ export function OrbitIcon({
           height: `${size * 4}px`,
           left: '50%',
           top: '50%',
-          transform: 'translate(-50%, -50%)',
-          animation: `orbit ${duration}s linear infinite`
+          transform: 'translate(-50%, -50%) rotate(var(--start-angle))',
+          animation: `orbit ${duration}s linear infinite`,
+          animationDirection: 'var(--spin-direction)'
         }}
       >
         <div className="absolute -inset-1 bg-gradient-to-r from-violet-500/20 to-transparent rounded-full animate-spin [animation-duration:3s]" />
         <Icon 
-          className={`absolute inset-0 m-auto animate-pulse ${className}`}
+          className={`absolute inset-0 m-auto ${className}`}
           style={{
             width: `${iconSize * 4}px`,
             height: `${iconSize * 4}px`,
-            transform: 'rotate(0deg)'
+            transform: 'rotate(calc(-1 * var(--start-angle)))', // Counter-rotate the icon to keep it fixed
           }}
         />
       </div>
     </div>
   );
 }
+
