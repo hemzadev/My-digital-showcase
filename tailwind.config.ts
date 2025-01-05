@@ -80,6 +80,10 @@ export default {
   				'100%': { backgroundPosition: '-100% 0' },
   			},
   		},
+		maxWidth: {
+			'8xl': '90rem', // Add your custom value here
+			'9xl': '100rem', // You can add more if needed
+		},
   	}
   },
   plugins: [require("tailwindcss-animate")],
